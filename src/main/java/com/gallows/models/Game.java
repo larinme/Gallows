@@ -9,9 +9,7 @@ import java.text.MessageFormat;
 public class Game {
 
     private final Round round;
-
     private final Player player;
-
     private final Score score;
 
     @Autowired
@@ -21,51 +19,53 @@ public class Game {
         this.score = score;
     }
 
-    public void attemptLetter(char letter){
+    public void attemptLetter(char letter) {
         String newMaskedWord = round.attemptLetter(letter);
-        if (newMaskedWord.equals(getMaskedWord())){
+        if (newMaskedWord.equals(getMaskedWord())) {
             score.addAttempt();
         }
         round.setMaskedWord(newMaskedWord);
     }
 
-    public String getMaskedWord(){
+    public String getMaskedWord() {
         return round.getMaskedWord();
-    }
-    private boolean areWordsEquals(){
-        return round.areWordsEquals();
-    }
-
-
-    public Score getScore() {
-        return score;
-    }
-
-    public boolean isLoose(){
-        return score.isCurrentCountOfAttemptsMoreOrEqualsThanMaxCount();
-    }
-
-    public boolean isWin(){
-        return !isLoose() && areWordsEquals();
-
-    }
-    public boolean isGameContinues(){
-        return !isLoose() && !areWordsEquals();
-
-    }
-
-    public String getResult(){
-        String result;
-        if (isLoose()){
-            result = "Loser";
-        } else{
-            result = "Winner";
-        }
-        return  result;
     }
 
     @Override
     public String toString() {
         return MessageFormat.format("Player {0} has mask {1} and used {2} mistaken attempts", player, round, score);
+    }
+
+    public Score getScore() { //TODO: DELETE
+        return score;
+    }
+
+    public GameStatus getGameStatus() {
+        GameStatus gameStatus;
+        if (!isLoose() && !areWordsEquals()) {
+            gameStatus = GameStatus.CONTINUING;
+        } else {
+            gameStatus = getResult();
+        }
+        return gameStatus;
+    }
+
+
+    private boolean areWordsEquals() {
+        return round.areWordsEquals();
+    }
+
+    private boolean isLoose() {
+        return score.hasAvailableAttempts();
+    }
+
+    private GameStatus getResult() {
+        GameStatus result;
+        if (isLoose()) {
+            result = GameStatus.LOSER;
+        } else {
+            result = GameStatus.WINNER;
+        }
+        return result;
     }
 }

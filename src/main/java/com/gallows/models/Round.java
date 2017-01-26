@@ -36,7 +36,7 @@ public class Round {
         char[] maskedChars = maskedWord.toCharArray();
 
         for (int i = 0; i < rightChars.length; i++) {
-            if (rightChars[i] == letter.charAt(0)){
+            if (rightChars[i] == letter.charAt(0)) {
                 maskedChars[i] = rightChars[i];
             }
         }
@@ -44,7 +44,7 @@ public class Round {
         return new String(maskedChars);
     }
 
-    public boolean areWordsEquals(){
+    public boolean areWordsEquals() {
         return maskedWord.equals(rightWord);
     }
 

@@ -8,7 +8,8 @@ public class Player {
 
     @Value("${playerName}")
     private String playerName;
-    public Player(){
+
+    public Player() {
 
     }
 

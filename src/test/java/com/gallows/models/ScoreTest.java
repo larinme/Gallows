@@ -12,13 +12,13 @@ public class ScoreTest {
     private Score score = new Score(5);
 
     @Test
-    public void checkStartCountOfAttemptsLessOrEqualThanMaxCount(){
+    public void checkStartCountOfAttemptsLessOrEqualThanMaxCount() {
 
-        assertFalse(score.isCurrentCountOfAttemptsMoreOrEqualsThanMaxCount());
+        assertFalse(score.hasAvailableAttempts());
     }
 
     @Test
-    public void checkAnyLegalAttemptDoesNotFinishARound(){
+    public void checkAnyLegalAttemptDoesNotFinishARound() {
 
         score.addAttempt();
         score.addAttempt();
@@ -30,11 +30,11 @@ public class ScoreTest {
                         "actual current count = {0}, max = {1}",
                         currentCountOfAttempts,
                         maxCountOfAttempts),
-                score.isCurrentCountOfAttemptsMoreOrEqualsThanMaxCount());
+                score.hasAvailableAttempts());
     }
 
     @Test
-    public void checkGameLoses(){
+    public void checkGameLoses() {
         score.addAttempt();
         score.addAttempt();
         score.addAttempt();
@@ -47,7 +47,7 @@ public class ScoreTest {
                         "actual current count = {0}, max = {1}",
                         currentCountOfAttempts,
                         maxCountOfAttempts),
-                score.isCurrentCountOfAttemptsMoreOrEqualsThanMaxCount());
+                score.hasAvailableAttempts());
     }
 
 }

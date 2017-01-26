@@ -7,7 +7,6 @@ import org.springframework.stereotype.Component;
 public class Score {
 
     private Integer maxCountOfAttempts;
-
     private int currentCountOfAttempts = 0;
 
     public Score(
@@ -16,7 +15,7 @@ public class Score {
         this.maxCountOfAttempts = maxCountOfAttempts;
     }
 
-    public boolean isCurrentCountOfAttemptsMoreOrEqualsThanMaxCount() {
+    public boolean hasAvailableAttempts() {
 
         return currentCountOfAttempts >= maxCountOfAttempts;
     }

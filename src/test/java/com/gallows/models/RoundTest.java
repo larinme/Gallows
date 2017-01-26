@@ -66,7 +66,7 @@ public class RoundTest {
     }
 
     @Test
-    public void checkCorrectnessOfBuiltMaskedWord(){
+    public void checkCorrectnessOfBuiltMaskedWord() {
         round.buildMaskedWord();
 
         String maskedWord = round.getMaskedWord();
@@ -75,7 +75,7 @@ public class RoundTest {
     }
 
     @Test
-    public void checkIncorrectnessOfBuiltMaskedWord(){
+    public void checkIncorrectnessOfBuiltMaskedWord() {
         round.buildMaskedWord();
 
         String maskedWord = round.getMaskedWord();
