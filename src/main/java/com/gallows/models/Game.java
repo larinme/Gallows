@@ -1,5 +1,6 @@
 package com.gallows.models;
 
+import com.gallows.helpers.GameStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -33,7 +34,7 @@ public class Game {
 
     @Override
     public String toString() {
-        return MessageFormat.format("Player {0} has mask {1} and used {2} mistaken attempts", player, round, score);
+        return MessageFormat.format("Player {0} has {1} and used {2} mistaken attempts", player, round, score);
     }
 
     public Score getScore() { //TODO: DELETE

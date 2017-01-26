@@ -1,4 +1,4 @@
-package com.gallows.models;
+package com.gallows.helpers;
 
 
 public enum GameStatus {

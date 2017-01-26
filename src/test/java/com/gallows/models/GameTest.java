@@ -1,5 +1,6 @@
 package com.gallows.models;
 
+import com.gallows.helpers.GameStatus;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
