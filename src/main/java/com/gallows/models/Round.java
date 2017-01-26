@@ -44,7 +44,16 @@ public class Round {
         return new String(maskedChars);
     }
 
+    public boolean areWordsEquals(){
+        return maskedWord.equals(rightWord);
+    }
+
     public void setMaskedWord(String maskedWord) {
         this.maskedWord = maskedWord;
+    }
+
+    @Override
+    public String toString() {
+        return "Masked Word='" + maskedWord + '\'';
     }
 }

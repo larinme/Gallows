@@ -16,9 +16,9 @@ public class Score {
         this.maxCountOfAttempts = maxCountOfAttempts;
     }
 
-    public boolean isCurrentCountOfAttemptsLessOrEqualThanMaxCount() {
+    public boolean isCurrentCountOfAttemptsMoreOrEqualsThanMaxCount() {
 
-        return currentCountOfAttempts < maxCountOfAttempts;
+        return currentCountOfAttempts >= maxCountOfAttempts;
     }
 
     public void addAttempt() {
@@ -32,5 +32,10 @@ public class Score {
 
     public int getCurrentCountOfAttempts() {
         return currentCountOfAttempts;
+    }
+
+    @Override
+    public String toString() {
+        return "Attempts is " + currentCountOfAttempts;
     }
 }

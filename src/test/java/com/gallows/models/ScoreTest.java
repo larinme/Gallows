@@ -14,7 +14,7 @@ public class ScoreTest {
     @Test
     public void checkStartCountOfAttemptsLessOrEqualThanMaxCount(){
 
-        assertTrue(score.isCurrentCountOfAttemptsLessOrEqualThanMaxCount());
+        assertFalse(score.isCurrentCountOfAttemptsMoreOrEqualsThanMaxCount());
     }
 
     @Test
@@ -25,12 +25,12 @@ public class ScoreTest {
         score.addAttempt();
         int currentCountOfAttempts = score.getCurrentCountOfAttempts();
         int maxCountOfAttempts = score.getMaxCountOfAttempts();
-        assertTrue(
+        assertFalse(
                 MessageFormat.format(
                         "actual current count = {0}, max = {1}",
                         currentCountOfAttempts,
                         maxCountOfAttempts),
-                score.isCurrentCountOfAttemptsLessOrEqualThanMaxCount());
+                score.isCurrentCountOfAttemptsMoreOrEqualsThanMaxCount());
     }
 
     @Test
@@ -42,12 +42,12 @@ public class ScoreTest {
         score.addAttempt();
         int currentCountOfAttempts = score.getCurrentCountOfAttempts();
         int maxCountOfAttempts = score.getMaxCountOfAttempts();
-        assertFalse(
+        assertTrue(
                 MessageFormat.format(
                         "actual current count = {0}, max = {1}",
                         currentCountOfAttempts,
                         maxCountOfAttempts),
-                score.isCurrentCountOfAttemptsLessOrEqualThanMaxCount());
+                score.isCurrentCountOfAttemptsMoreOrEqualsThanMaxCount());
     }
 
 }
