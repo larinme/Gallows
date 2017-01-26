@@ -6,30 +6,33 @@ import org.springframework.stereotype.Component;
 @Component
 public class Game {
 
-    @Autowired
-    private Round round;
+    private final Round round;
+
+    private final Player player;
+
+    private final Score score;
 
     @Autowired
-    private Player player;
-
-    
-
-    public Round getRound() {
-        return round;
-    }
-
-    public void setRound(Round round) {
+    public Game(Round round, Player player, Score score) {
         this.round = round;
-    }
-
-    public Player getPlayer() {
-        return player;
-    }
-
-    public void setPlayer(Player player) {
         this.player = player;
+        this.score = score;
+    }
+
+    public void attemptLetter(char letter){
+        String newMaskedWord = round.attemptLetter(letter);
+        if (newMaskedWord.equals(getMaskedWord())){
+            score.addAttempt();
+        }
+        round.setMaskedWord(newMaskedWord);
+    }
+
+    public String getMaskedWord(){
+        return round.getMaskedWord();
     }
 
 
-
+    public Score getScore() {
+        return score;
+    }
 }

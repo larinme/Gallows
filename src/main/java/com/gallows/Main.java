@@ -8,7 +8,7 @@ public class Main {
 
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-config.xml");
-        Game bean = context.getBean(Game.class);
-        System.out.println();
+        Game game = context.getBean(Game.class);
+        System.out.println(game);
     }
 }
