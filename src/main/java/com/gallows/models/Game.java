@@ -46,7 +46,7 @@ public class Game {
         return gameStatus;
     }
 
-    public Score getScore() { //TODO: DELETE
+    public Score getScore() {
         return score;
     }
 
