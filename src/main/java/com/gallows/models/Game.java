@@ -46,8 +46,8 @@ public class Game {
         return gameStatus;
     }
 
-    public Score getScore() {
-        return score;
+    public int getCountOfAttempts(){
+        return score.getCurrentCountOfAttempts();
     }
 
     public void setPlayerName(String name){
@@ -71,5 +71,9 @@ public class Game {
             result = GameStatus.WINNER;
         }
         return result;
+    }
+
+    public boolean hasAvailableAttempts() {
+        return score.hasAvailableAttempts();
     }
 }
