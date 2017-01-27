@@ -23,8 +23,8 @@ public class GameTest {
         game.attemptLetter('A');
         String maskedWord = game.getMaskedWord();
         Assert.assertEquals("_A____", maskedWord);
-        Assert.assertEquals(0, game.getCountOfAttempts());
-        Assert.assertEquals(false, game.hasAvailableAttempts());
+        Assert.assertEquals(0, score.getCurrentCountOfAttempts());
+        Assert.assertEquals(GameStatus.CONTINUING, game.getGameStatus());
     }
 
     @Test
@@ -33,8 +33,8 @@ public class GameTest {
         game.attemptLetter('Z');
         String maskedWord = game.getMaskedWord();
         Assert.assertEquals("______", maskedWord);
-        Assert.assertEquals(1, game.getCountOfAttempts());
-        Assert.assertEquals(false, game.hasAvailableAttempts());
+        Assert.assertEquals(1, score.getCurrentCountOfAttempts());
+        Assert.assertEquals(GameStatus.CONTINUING, game.getGameStatus());
     }
 
     @Test
@@ -47,7 +47,7 @@ public class GameTest {
         game.attemptLetter('Z');
         String maskedWord = game.getMaskedWord();
         Assert.assertEquals("______", maskedWord);
-        Assert.assertEquals(5, game.getCountOfAttempts());
+        Assert.assertEquals(5, score.getCurrentCountOfAttempts());
         Assert.assertEquals(GameStatus.LOSER, game.getGameStatus());
     }
 
@@ -61,7 +61,7 @@ public class GameTest {
         game.attemptLetter('r');
         String maskedWord = game.getMaskedWord();
         Assert.assertEquals("FATHER", maskedWord);
-        Assert.assertEquals(0, game.getCountOfAttempts());
+        Assert.assertEquals(0, score.getCurrentCountOfAttempts());
         Assert.assertEquals(GameStatus.WINNER, game.getGameStatus());
     }
 }
