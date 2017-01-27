@@ -10,8 +10,7 @@ public class GameTest {
     private String rightWord = "FATHER";
     private Round round = new Round(rightWord);
     private Score score = new Score(5);
-    private Player player = new Player();
-    private Game game = new Game(round, player, score);
+    private Game game = new Game(round, score);
 
     @Before
     public void init() {

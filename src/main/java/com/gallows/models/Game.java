@@ -10,13 +10,12 @@ import java.text.MessageFormat;
 public class Game {
 
     private final Round round;
-    private final Player player;
     private final Score score;
+    private final Player player = new Player();
 
     @Autowired
-    public Game(Round round, Player player, Score score) {
+    public Game(Round round, Score score) {
         this.round = round;
-        this.player = player;
         this.score = score;
     }
 
@@ -37,10 +36,6 @@ public class Game {
         return MessageFormat.format("Player {0} has {1} and used {2} mistaken attempts", player, round, score);
     }
 
-    public Score getScore() { //TODO: DELETE
-        return score;
-    }
-
     public GameStatus getGameStatus() {
         GameStatus gameStatus;
         if (!isLoose() && !areWordsEquals()) {
@@ -49,6 +44,14 @@ public class Game {
             gameStatus = getResult();
         }
         return gameStatus;
+    }
+
+    public Score getScore() { //TODO: DELETE
+        return score;
+    }
+
+    public void setPlayerName(String name){
+        player.setPlayerName(name);
     }
 
 
